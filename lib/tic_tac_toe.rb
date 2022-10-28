@@ -153,10 +153,25 @@ class TicTacToe
             nil
         end
     end
+
+    #Putting it all together: the #play method - Main application method
+    #play
+    def play
+        unless self.over?
+            self.turn
+        else
+            if self.won?
+                if winner == "X" || winner == "O"
+                    puts "Congratulations #{self.winner}!"
+                end
+            else 
+                puts "Cat's Game!"
+            end
+        end
+    end
 end
 
 #Test game
 game = TicTacToe.new
 board = ["X", "O", " ", " ", " ", " ", " ", "O", "X"]
 game.instance_variable_set(:@board, board)
-binding.pry
